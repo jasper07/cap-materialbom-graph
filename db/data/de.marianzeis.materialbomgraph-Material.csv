@@ -1,0 +1,16 @@
+ID,materialId,materialDescription,materialType,createdAt,createdBy,modifiedAt,modifiedBy
+11111111-1111-1111-1111-111111111111,KIT-001,Premium Water Filter Kit,KIT,2024-02-24T10:00:00Z,admin,2024-02-24T10:00:00Z,admin
+22222222-2222-2222-2222-222222222222,COMP-001,Filter Housing Assembly,COMPONENT,2024-02-24T10:00:00Z,admin,2024-02-24T10:00:00Z,admin
+33333333-3333-3333-3333-333333333333,RAW-001,Polypropylene Granules,RAW_MATERIAL,2024-02-24T10:00:00Z,admin,2024-02-24T10:00:00Z,admin
+44444444-4444-4444-4444-444444444444,PKG-001,Filter Box with Manual,PACKAGING,2024-02-24T10:00:00Z,admin,2024-02-24T10:00:00Z,admin
+55555555-5555-5555-5555-555555555555,ESS-001,Mint Fresh Essence,ESSENCE,2024-02-24T10:00:00Z,admin,2024-02-24T10:00:00Z,admin
+66666666-6666-6666-6666-666666666666,WAT-001,Purified Water Base,WATER,2024-02-24T10:00:00Z,admin,2024-02-24T10:00:00Z,admin
+77777777-7777-7777-7777-777777777777,KEY-001,Activated Carbon Core,KEY,2024-02-24T10:00:00Z,admin,2024-02-24T10:00:00Z,admin
+88888888-8888-8888-8888-888888888888,BLK-001,Pre-Mixed Filter Solution,BULK,2024-02-24T10:00:00Z,admin,2024-02-24T10:00:00Z,admin
+99999999-9999-9999-9999-999999999999,SFL-001,Mineral Salt Mix,SALT_FILL,2024-02-24T10:00:00Z,admin,2024-02-24T10:00:00Z,admin
+aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa,SAS-001,Salt Chamber Assembly,SALT_ASSEMBLY,2024-02-24T10:00:00Z,admin,2024-02-24T10:00:00Z,admin
+bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb,LIQ-001,Mineral Enriched Solution,LIQUID_FILL,2024-02-24T10:00:00Z,admin,2024-02-24T10:00:00Z,admin
+cccccccc-cccc-cccc-cccc-cccccccccccc,KIT-002,Basic Water Filter Kit,KIT,2024-02-24T10:00:00Z,admin,2024-02-24T10:00:00Z,admin
+dddddddd-dddd-dddd-dddd-dddddddddddd,COMP-002,Filter Cartridge Assembly,COMPONENT,2024-02-24T10:00:00Z,admin,2024-02-24T10:00:00Z,admin
+eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee,RAW-002,Carbon Filter Media,RAW_MATERIAL,2024-02-24T10:00:00Z,admin,2024-02-24T10:00:00Z,admin
+ffffffff-ffff-ffff-ffff-ffffffffffff,PKG-002,Eco-Friendly Package,PACKAGING,2024-02-24T10:00:00Z,admin,2024-02-24T10:00:00Z,admin

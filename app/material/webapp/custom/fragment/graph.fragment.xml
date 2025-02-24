@@ -1,0 +1,123 @@
+<core:FragmentDefinition xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.suite.ui.commons.networkgraph"
+    xmlns:layout="sap.suite.ui.commons.networkgraph.layout">
+
+    <!--
+      This XML fragment defines the Network Graph structure used to visualize 
+      the hierarchical relationships of Materials. Each node and line is 
+      automatically bound to the data from the 'graphModel' model we populate in 
+      ObjectPage.controller.ts. The statuses define color codings for certain 
+      material types or categories.
+    -->
+    <Graph
+        id="graph"
+        busy="{graphSettings>/busy}"
+        busyIndicatorDelay="{graphSettings>/busyIndicatorDelay}"
+        nodes="{ 
+          path:'graphModel>/nodes', 
+          templateShareable:false
+        }"
+        lines="{graphModel>/lines}"
+        groups="{graphModel>/groups}"
+        enableWheelZoom="true"
+        orientation="LeftRight"
+        height="800px">
+
+        <layoutAlgorithm>
+            <!-- 
+              LayeredLayout organizes nodes in layers for better readability.
+              nodePlacement="LinearSegments" helps with clearer, linear connections.
+            -->
+            <layout:LayeredLayout mergeEdges="true" nodeSpacing="75" nodePlacement="LinearSegments"/>
+        </layoutAlgorithm>
+
+        <!--
+          Custom statuses map material types to background colors. 
+          'status' property on each node determines which color is used.
+        -->
+        <statuses>
+            <Status key="PACKAGING" backgroundColor="#bac8d3"/>
+            <Status key="KIT" backgroundColor="#d5e8d4"/>
+            <Status key="COMPONENT" backgroundColor="#5c9cd2"/>
+            <Status key="RAW_MATERIAL" backgroundColor="#f9dad5"/>
+            <Status key="RAW MATERIAL" backgroundColor="#f9dad5"/>
+            <Status key="ESSENCE" backgroundColor="#b1ddf0"/>
+            <Status key="WATER" backgroundColor="#00b7c7"/>
+            <Status key="KEY" backgroundColor="white"/>
+            <Status key="BULK" backgroundColor="#fad7ac"/>
+            <Status key="SALT_FILL" backgroundColor="#e3c800"/>
+            <Status key="SALT FILL" backgroundColor="#e3c800"/>
+            <Status key="SALT_ASSEMBLY" backgroundColor="#DAA520"/>
+            <Status key="SALT ASSEMBLY" backgroundColor="#DAA520"/>
+            <Status key="LIQUID FILL" backgroundColor="#dae8fc"/>
+            <Status key="LIQUID_FILL" backgroundColor="#dae8fc"/>
+        </statuses>
+
+        <nodes>
+            <!--
+              Each node represents a material and binds to its "key", "title", "icon",
+              "status", etc. The "customData" is used to navigate back to the 
+              ObjectPage upon user action.
+            -->
+            <Node
+                shape="Box"
+                key="{graphModel>key}"
+                title="{graphModel>title}"
+                icon="{graphModel>icon}"
+                group="{graphModel>group}"
+                status="{graphModel>status}"
+                showActionLinksButton="true"
+                attributes="{ path:'graphModel>attributes', templateShareable:false }">
+
+                <attributes>
+                    <!-- 
+                      This ElementAttribute is used to display additional info about the node. 
+                    -->
+                    <ElementAttribute
+                        templateShareable="false"
+                        label="{graphModel>label}"
+                        value="{graphModel>value}" />
+                </attributes>
+
+                <customData>
+                    <!-- 
+                      These CustomData entries store important IDs so the 
+                      navigation can be triggered to the correct material details.
+                    -->
+                    <core:CustomData key="materialId" value="{graphModel>customData/materialId}" />
+                    <core:CustomData key="materialType" value="{graphModel>customData/materialType}" />
+                    <core:CustomData key="material_ID" value="{graphModel>customData/material_ID}" />
+                </customData>
+
+                <!-- 
+                  ActionButton allows the user to jump into the ObjectPage 
+                  for the clicked material node. "press" connects to 
+                  onGoToMaterial in ObjectPage.controller.ts 
+                -->
+                <actionButtons>
+                    <ActionButton
+                        icon="sap-icon://chain-link"
+                        title="Go to Material"
+                        press=".extension.de.marianzeis.material.controller.ObjectPage.onGoToMaterial"/>
+                </actionButtons>
+            </Node>
+        </nodes>
+
+        <!-- 
+          "lines" represent edges between nodes, showing relationships 
+          and referencing the 'from' and 'to' attributes. 
+        -->
+        <lines>
+            <Line from="{graphModel>from}" to="{graphModel>to}" description="{graphModel>description}" title="{graphModel>title}" />
+        </lines>
+
+        <!-- 
+          Optional grouping logic if you want to group sets of nodes 
+          and visually separate them in the diagram.
+        -->
+        <groups>
+            <Group key="{graphModel>key}" title="{graphModel>title}" />
+        </groups>
+    </Graph>
+</core:FragmentDefinition>
