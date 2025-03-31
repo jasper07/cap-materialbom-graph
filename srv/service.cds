@@ -4,9 +4,4 @@ service MaterialGraph {
     entity Material         as projection on MaterialSchema.Material;
     entity MaterialBOM      as projection on MaterialSchema.MaterialBOM;
     entity RelationshipType as projection on MaterialSchema.RelationshipType;
-    entity GraphNetwork     as
-        projection on MaterialSchema.GraphNetwork {
-            *,
-            root : redirected to Material
-        };
 }
